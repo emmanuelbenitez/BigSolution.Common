@@ -1,0 +1,2 @@
+# BigSolution.Common
+Common utility
