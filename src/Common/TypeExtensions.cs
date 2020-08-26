@@ -26,9 +26,15 @@ namespace System
     {
         public static bool Implements(this Type type, Type interfaceType)
         {
-            Requires.NotNull(type, nameof(type));
-            Requires.NotNull(interfaceType, nameof(interfaceType));
-            Requires.IsValid(interfaceType.IsInterface, nameof(interfaceType), "The type is not an interface");
+            Requires.Argument(type, nameof(type))
+                .IsNotNull()
+                .Check();
+            Requires.Argument(interfaceType, nameof(interfaceType))
+                .IsNotNull()
+                .Check();
+            Requires.Argument(interfaceType, nameof(interfaceType))
+                .IsInterface()
+                .Check();
 
             return type.GetInterfaces().Any(x => x.IsGenericType && x.GetGenericTypeDefinition() == interfaceType || x == interfaceType);
         }
@@ -42,7 +48,9 @@ namespace System
 
         public static bool Is<T>(this Type type)
         {
-            Requires.NotNull(type, nameof(type));
+            Requires.Argument(type, nameof(type))
+                .IsNotNull()
+                .Check();
             return typeof(T).IsAssignableFrom(type);
         }
     }
