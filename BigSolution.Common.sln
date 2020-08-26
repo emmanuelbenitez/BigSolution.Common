@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Tests", "src\Common.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{AB4F2125-F547-4E99-A59F-93989F4F1725}"
 	ProjectSection(SolutionItems) = preProject
+		azure-devops-prerelease.yml = azure-devops-prerelease.yml
+		azure-devops-release.yml = azure-devops-release.yml
+		azure-pipelines-ci.yml = azure-pipelines-ci.yml
 		src\Directory.Build.props = src\Directory.Build.props
+		version-variables.yml = version-variables.yml
 	EndProjectSection
 EndProject
 Global
