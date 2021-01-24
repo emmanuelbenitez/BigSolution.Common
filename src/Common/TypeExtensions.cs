@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2020 Emmanuel Benitez
+// Copyright © 2020 - 2021 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,13 +18,14 @@
 
 using System.Linq;
 using BigSolution;
+using JetBrains.Annotations;
 
 // ReSharper disable once CheckNamespace
 namespace System
 {
     public static class TypeExtensions
     {
-        public static bool Implements(this Type type, Type interfaceType)
+        public static bool Implements([NotNull]this Type type, Type interfaceType)
         {
             Requires.Argument(type, nameof(type))
                 .IsNotNull()
@@ -39,14 +40,14 @@ namespace System
             return type.GetInterfaces().Any(x => x.IsGenericType && x.GetGenericTypeDefinition() == interfaceType || x == interfaceType);
         }
 
-        public static bool Implements<TInterface>(this Type type)
+        public static bool Implements<TInterface>([NotNull] this Type type)
         {
             var interfaceType = typeof(TInterface);
 
             return type.Implements(interfaceType);
         }
 
-        public static bool Is<T>(this Type type)
+        public static bool Is<T>([NotNull] this Type type)
         {
             Requires.Argument(type, nameof(type))
                 .IsNotNull()

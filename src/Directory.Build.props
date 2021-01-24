@@ -18,10 +18,11 @@
 -->
 <Project>
   <PropertyGroup>
-    <Major Condition=" '$(Major)' == '' ">1</Major>
+    <Major Condition=" '$(Major)' == '' ">2</Major>
     <Minor Condition=" '$(Minor)' == '' ">0</Minor>
-    <Patch Condition=" '$(Patch)' == '' ">1</Patch>
+    <Patch Condition=" '$(Patch)' == '' ">0</Patch>
   </PropertyGroup>
 
   <Import Project="$(MSBuildThisFileDirectory)../.resources/Directory.Build.props" />
+  <Import Project="$(MSBuildThisFileDirectory)../.settings/Directory.Build.props" />
 </Project>
